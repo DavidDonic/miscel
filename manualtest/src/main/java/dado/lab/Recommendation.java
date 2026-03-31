@@ -1,4 +1,5 @@
 package dado.lab;
+import java.time.LocalDate;
 import java.util.*;
 
 public class Recommendation {
@@ -10,12 +11,11 @@ public class Recommendation {
      * @return n movies with top-similarity
      */
     public static void main(String[] args) {
+
         Recommendation recommendation = new Recommendation();
         Map<String, List<String>> similarityGraph = new HashMap<>();
-//        similarityGraph.put("Intel", Arrays.asList("AMD", "Nvidia"));
-//        similarityGraph.put("AMD", Arrays.asList("Intel", "Microsoft"));
-//        similarityGraph.put("Nvidia", Arrays.asList("AMD", "Microsoft", "Samsung"));
-//        similarityGraph.put("Microsoft", Arrays.asList("AMD", "Nvidia", "Intel", "Toshiba"));
+
+        LocalDate today = LocalDate.now();
 
         similarityGraph.put("Inception", Arrays.asList("Interstellar", "Shutter Island"));
         similarityGraph.put("Interstellar", Arrays.asList("Inception", "The Martian" ));
@@ -35,7 +35,7 @@ public class Recommendation {
                 recommendation.getSimilar("Interstellar", 100, similarityGraph),
                 Arrays.asList("Inception", "The Martian", "Shutter Island", "Gone Girl"));
 
-        //System.out.println(recommendation.getSimilar("Intel", 3, similarityGraph));
+        System.out.println(today);
     }
 
 
