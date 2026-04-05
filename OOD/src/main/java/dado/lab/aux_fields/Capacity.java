@@ -1,4 +1,4 @@
-package dado.lab;
+package dado.lab.aux_fields;
 
 public enum Capacity {
     SMALL,
