@@ -1,0 +1,34 @@
+OOD Iteration Checklist Summary
+
+1. Start from use cases
+- Identify required actions, inputs, outputs, and possible failures.
+
+2. Identify nouns
+- Find main domain concepts, but only create classes when they are truly needed.
+
+3. Identify verbs
+- Use behaviors to decide class responsibilities.
+
+4. Give each object one main responsibility
+- Keep classes focused and avoid mixing unrelated jobs.
+
+5. Check support for change
+- Make sure new rules or size changes do not require rewriting many classes.
+
+6. Avoid unnecessary complexity
+- Remove abstractions that do not solve a real problem.
+
+7. Consider operational needs
+- Think about search speed, update speed, ordering, and future extension.
+
+8. Prototype the simplest workable version
+- Build a small version first, then improve it.
+
+9. Refine based on pain points
+- Use awkward parts of the design as clues for refactoring.
+
+10. Stop when the design is good enough
+- Aim for clarity, maintainability, and reasonable extensibility, not perfection.
+
+Core workflow:
+requirements → objects → responsibilities → implementation → review → refactor
