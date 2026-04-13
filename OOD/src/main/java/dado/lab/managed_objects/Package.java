@@ -25,6 +25,4 @@ public class Package {
         this.receiver = receiver;
         this.size = size;
     }
-
-    public Package() {}
 }
