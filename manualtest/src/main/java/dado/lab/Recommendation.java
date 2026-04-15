@@ -10,37 +10,11 @@ public class Recommendation {
      * @param n how many movies returned
      * @return n movies with top-similarity
      */
-    public static void main(String[] args) {
-
-        Recommendation recommendation = new Recommendation();
-        Map<String, List<String>> similarityGraph = new HashMap<>();
-
-        LocalDate today = LocalDate.now();
-
-        similarityGraph.put("Inception", Arrays.asList("Interstellar", "Shutter Island"));
-        similarityGraph.put("Interstellar", Arrays.asList("Inception", "The Martian" ));
-        similarityGraph.put("Shutter Island", Arrays.asList("Inception", "Gone Girl" ));
-        similarityGraph.put("The Martian", Arrays.asList("Interstellar"));
-        similarityGraph.put("Gone Girl", Arrays.asList("Shutter Island"));
-
-        assertEquals("Normal Case (n=3)",
-                recommendation.getSimilar("Interstellar", 3, similarityGraph),
-                Arrays.asList("Inception", "The Martian", "Shutter Island"));
-
-        assertEquals("The Closest (n=1)",
-                recommendation.getSimilar("Interstellar", 1, similarityGraph),
-                Arrays.asList("Inception"));
-
-        assertEquals("All Similar (n=100)",
-                recommendation.getSimilar("Interstellar", 100, similarityGraph),
-                Arrays.asList("Inception", "The Martian", "Shutter Island", "Gone Girl"));
-
-        System.out.println(today);
-    }
 
 
 
-    private List<String> getSimilar(String movieName, int n,
+
+    public List<String> getSimilar(String movieName, int n,
                            Map<String, List<String>> similiarityGraph)
     {
         // --- edge case handling ---
@@ -74,7 +48,7 @@ public class Recommendation {
     }
 
     // --- tests mock Junit---
-    private static void assertEquals(String testName, Object actual, Object expected)
+    public void assertEquals(String testName, Object actual, Object expected)
     {
         if (Objects.equals(actual, expected)) {
             System.out.println("√ " + testName + " PASSED");
