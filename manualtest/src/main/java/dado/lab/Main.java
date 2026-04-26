@@ -34,9 +34,12 @@ public class Main {
 //
 //        System.out.println(today);
         HensAndGrains HAG = new HensAndGrains();
+        TriangleArea TG = new TriangleArea();
         int[] hens = new int[]{3, 6, 7};
         int[] grains = new int[]{3, 6, 7};
-
-        System.out.println(HAG.hensAndGrains(grains, hens));
+        List<Integer> x = Arrays.asList(3, 0, 3);
+        List<Integer> y = Arrays.asList(0, 3, 3);
+        //System.out.println(HAG.hensAndGrains(grains, hens));
+        System.out.println(TG.getArea(x, y));
     }
 }
