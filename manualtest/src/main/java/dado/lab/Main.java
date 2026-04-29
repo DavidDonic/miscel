@@ -33,13 +33,17 @@ public class Main {
 //                Arrays.asList("Inception", "The Martian", "Shutter Island", "Gone Girl"));
 //
 //        System.out.println(today);
-        HensAndGrains HAG = new HensAndGrains();
-        TriangleArea TG = new TriangleArea();
-        int[] hens = new int[]{3, 6, 7};
-        int[] grains = new int[]{3, 6, 7};
-        List<Integer> x = Arrays.asList(3, 0, 3);
-        List<Integer> y = Arrays.asList(0, 3, 3);
-        //System.out.println(HAG.hensAndGrains(grains, hens));
-        System.out.println(TG.getArea(x, y));
+        // --- hens - triangle ---
+//        HensAndGrains HAG = new HensAndGrains();
+//        TriangleArea TG = new TriangleArea();
+//        int[] hens = new int[]{3, 6, 7};
+//        int[] grains = new int[]{3, 6, 7};
+//        List<Integer> x = Arrays.asList(3, 0, 3);
+//        List<Integer> y = Arrays.asList(0, 3, 3);
+//        //System.out.println(HAG.hensAndGrains(grains, hens));
+//        System.out.println(TG.getArea(x, y));
+        MinHeightTree MHT = new MinHeightTree();
+        int[][] edges = new int[][]{{0, 1}, {0, 2}, {0, 3}, {2, 4}, {0, 5}, {5, 6}, {6, 7}, {2, 8}, {7, 9}};
+        System.out.println(MHT.mht(10, edges));
     }
 }
