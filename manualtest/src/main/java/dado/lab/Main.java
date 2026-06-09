@@ -46,7 +46,11 @@ public class Main {
 //        MinHeightTree MHT = new MinHeightTree();
 //        int[][] edges = new int[][]{{0, 1}, {0, 2}, {0, 3}, {2, 4}, {0, 5}, {5, 6}, {6, 7}, {2, 8}, {7, 9}};
 //        System.out.println(MHT.mht(10, edges));
-        MissingTwo MT = new MissingTwo();
-        System.out.println(Arrays.toString(MT.missing2(new int[]{3,4,5})));
+
+//        MissingTwo MT = new MissingTwo();
+//        System.out.println(Arrays.toString(MT.missing2(new int[]{3,4,5})));
+
+        MNC MNC = new MNC();
+        MNC.mnc("yesqoctwkernmguegsefuejvehicoaavmjdbruxqbqycxizhhzixcyqbqxurbdjmvaaocihevjeufesgeugmnrekwtcoqsey");
     }
 }
