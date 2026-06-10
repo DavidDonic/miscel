@@ -50,7 +50,10 @@ public class Main {
 //        MissingTwo MT = new MissingTwo();
 //        System.out.println(Arrays.toString(MT.missing2(new int[]{3,4,5})));
 
-        MNC MNC = new MNC();
-        MNC.mnc("yesqoctwkernmguegsefuejvehicoaavmjdbruxqbqycxizhhzixcyqbqxurbdjmvaaocihevjeufesgeugmnrekwtcoqsey");
+//        MNC MNC = new MNC();
+//        MNC.mnc("abbabaab");
+
+          ValidString VS = new ValidString();
+          System.out.println(VS.valid("())(()())"));
     }
 }

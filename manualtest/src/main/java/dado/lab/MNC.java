@@ -18,25 +18,24 @@ public class MNC {
         int[] mnc = new int[sor.size()];
         mnc[0] = 1;
         mnc[mnc.length - 1] = 1;
+        int center = 0;
+        int max = 1;
         for (int i = 1; i < mnc.length - 1; i++) {
-            int prev = mnc[i - 1];
-            int max = i - 1 + prev;
-            if (max < i && i > prev) {
-                mnc[i] = Math.min(max - i, mnc[i - 2]);
+            if (i < max) {
+                mnc[i] = Math.min(max - i, mnc[2 * center - i]);
             } else {
-                int len = 0;
-                int cur = i;
-                while (2 * i - cur >= 0 && cur < mnc.length) {
-                    if (sor.get(cur) == sor.get(2 * i - cur)) {
-                        len++;
-                    } else {
-                        break;
-                    }
-                    cur++;
-                }
-                mnc[i] = len;
+                mnc[i] = 1;
+            }
+            while (i + mnc[i] < mnc.length && i >= mnc[i] && sor.get(i + mnc[i]) == sor.get(i - mnc[i])) {
+                mnc[i]++;//further possible extension if prev result is restricted by boundary
+            }
+            if (i + mnc[i] > max) {
+                //boundary extended
+                max = i + mnc[i];
+                center = i;
             }
         }
         System.out.println(Arrays.toString(mnc));
+        //return mnc;
     }
 }
