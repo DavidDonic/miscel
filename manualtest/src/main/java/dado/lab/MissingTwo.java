@@ -32,15 +32,13 @@ public class MissingTwo {
         int rht = array.length - 1;
 
 
-        while (lft < rht) {
+        while (lft < rht - 1) {
             int mid = lft + (rht - lft) / 2;
             int val = array[mid];
-            if (val == mid + plus) {
+            if (val >= mid + plus) {
                 rht = mid;
-            } else if (val < mid + plus) {
-                lft = mid + 1;
             } else {
-                rht = mid - 1;
+                lft = mid + 1;
             }
         }
 
@@ -48,6 +46,6 @@ public class MissingTwo {
         if (array[lft] == lft + plus) {
             return lft;
         }
-        return -1;
+        return (array[rht] == rht + plus) ? rht : -1;
     }
 }
