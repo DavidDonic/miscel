@@ -53,7 +53,11 @@ public class Main {
 //        MNC MNC = new MNC();
 //        MNC.mnc("abbabaab");
 
-          ValidString VS = new ValidString();
-          System.out.println(VS.valid("())(()())"));
+//          ValidString VS = new ValidString();
+//          System.out.println(VS.valid("())(()())"));
+
+          ThresholdSquare THS = new ThresholdSquare();
+          int[][] mat = new int[][]{{1, 1, 3, 2, 4}, {1, 1, 3, 2, 4}, {1, 1, 3, 2, 4}, {4, 5, 2, 5, 6}};
+          System.out.println(THS.solution(mat, 15));
     }
 }
