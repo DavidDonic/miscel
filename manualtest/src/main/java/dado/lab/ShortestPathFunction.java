@@ -1,7 +1,5 @@
 package dado.lab;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 
 
@@ -18,7 +16,7 @@ public class ShortestPathFunction implements Function<String, List<String>> {
                 if (j != ori) {
                     sor[i] = j;
                     String now = new String(sor);
-                    if (WORDS.contains(now)) {
+                    if (words.contains(now)) {
                         neibs.add(now);
                     }
                 }
@@ -28,9 +26,9 @@ public class ShortestPathFunction implements Function<String, List<String>> {
         return neibs;
     }
 
-    private Set<String> WORDS;
+    private Set<String> words;
 
     public ShortestPathFunction(Set<String> ws) {
-        this.WORDS = ws;//or make a deep copy of ws for immutable concern
+        this.words = ws;//or make a deep copy of ws for immutable concern
     }
 }
