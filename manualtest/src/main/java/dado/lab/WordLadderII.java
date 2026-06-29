@@ -8,6 +8,7 @@ public class WordLadderII {
     public static void main(String[] args) {
         List<String> dict = Arrays.asList("hot", "dot", "dog", "lot", "log", "cog");
         System.out.println(findAllLadders("hit", "cog", dict));
+        ShortestPathFunction wordTest = new ShortestPathFunction(Set.of("Haha", "Hehe", "Huhu"));
     }
     public static List<List<String>> findAllLadders(String beginWord, String endWord,
                                              List<String> words) {

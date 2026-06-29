@@ -1,9 +1,10 @@
 package dado.lab;
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 
-public class ShortestPathFunction implements Function<String, List<String>> {
+public class ShortestPathFunction implements Function<String, List<String>>, Predicate<String> {
 
 
     @Override
@@ -24,6 +25,11 @@ public class ShortestPathFunction implements Function<String, List<String>> {
             sor[i] = ori;
         }
         return neibs;
+    }
+
+    @Override
+    public boolean test(String word) {
+        return (words.contains(word));
     }
 
     private Set<String> words;
