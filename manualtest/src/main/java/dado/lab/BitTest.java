@@ -10,6 +10,7 @@ public class BitTest {
         int c = -1;//32*1
         System.out.println(Integer.bitCount(c));//32
 
+        //XOR-swap digit
 
     }
 }
