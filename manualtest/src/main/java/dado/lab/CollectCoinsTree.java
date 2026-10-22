@@ -6,8 +6,8 @@ import java.util.List;
 
 public class CollectCoinsTree {
     public static void main(String[] args) {
-        int[][] edges = new int[][]{{0, 1}, {0, 2}, {1, 3}, {1, 4}, {2, 5}, {5, 6}, {5, 7}};
-        int[] coins = new int[]{0, 0, 0, 1, 1, 0, 0, 1};
+        int[][] edges = new int[][]{{0, 1}, {1, 2}, {2, 3}};
+        int[] coins = new int[]{1, 0, 0, 1};
         System.out.println(shortest(coins, edges));
     }
 
@@ -54,7 +54,10 @@ public class CollectCoinsTree {
             int ret = postOrder(graph, coins, far, sub, sibling, cur, neib);
 
             if (ret > 2) sub[cur] += sub[neib] + 2;
-            if (ret >= 2) far[cur]++;
+            if (ret >= 2) {
+                far[cur]++;
+                if (ret == 2) sibling[neib] = -1;
+            }
             if (ret <= 1) {
                 if (ret == 1) dia1++;
                 sibling[neib] = -2;
@@ -62,21 +65,21 @@ public class CollectCoinsTree {
             deep = Math.max(deep, ret);
         }
 
-        if (deep >= 2) far[cur] = 1;
-
         for (int neib : graph.get(cur)) {
             if (neib == prev) continue;
 
             //sibling and far of neib
-            far[neib] = (sibling[neib] < 0) ? far[cur] + dia1 : far[cur] + dia1 - 1;
-            far[neib] -= (sibling[neib] < 0 && coins[neib] == 1) ? 1 : 0;
+            far[neib] = (sibling[neib] < -1) ? far[cur] + dia1 : far[cur] + dia1 - 1;
+            far[neib] -= (sibling[neib] < -1 && coins[neib] == 1) ? 1 : 0;
 
             if (sub[cur] == 0 && far[cur] == 0) {
                 sibling[neib] = 0;
             } else if (sub[cur] == 0) {
-                sibling[neib] = (far[cur] == 1 && sibling[neib] == 0) ? 0 : 2;
+                sibling[neib] = (far[cur] == 1 && sibling[neib] >= -1) ? 0 : 2;
+            } else if (far[cur] == 1 && sibling[neib] >= -1) {
+                sibling[neib] = 0;
             } else {
-                sibling[neib] = (sibling[neib] >= 0 && sub[cur] == 2 + sub[neib]) ? 0 : sub[cur] - sub[neib] - sibling[neib];
+                sibling[neib] = (sub[neib] == 0 && sibling[neib] <= -1) ? sub[cur] - sub[neib] + 2: sub[cur] - sub[neib];
             }
         }
 
@@ -95,7 +98,6 @@ public class CollectCoinsTree {
         sub[cur] += (sibling[cur] + upper);
         sibling[cur] += upper;
         far[cur] += (prev >= 0) ? far[prev] : 0;
-        //far[cur] += (prev >= 0 && coins[prev] == 1 && far[prev] == 0) ? 1 : 0;
 
         for (int neib : graph.get(cur)) {
             if (neib == prev) continue;
